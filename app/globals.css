@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #fb8597;
+  --color-primary-dark: #ffb6c1;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #121212;
   --foreground: #ededed;
 }
 

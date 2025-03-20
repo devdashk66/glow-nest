@@ -3,11 +3,7 @@ module.exports = {
   darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      colors: {
-        primary: "#ea253c",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

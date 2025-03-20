@@ -19,10 +19,8 @@ const DesktopNavigation = ({ navLinks }) => {
           >
             <Link
               href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                isActive
-                  ? "text-primary underline"
-                  : "text-gray-700 hover:text-primary dark:text-gray-200 dark:hover:text-primary"
+              className={`text-sm font-medium  transition-colors ${
+                isActive ? "text-primary underline" : ""
               }`}
             >
               {link.name}

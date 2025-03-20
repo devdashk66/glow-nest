@@ -45,7 +45,9 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-primary">Glow Nest</span>
+              <span className="text-2xl font-bold text-primary dark:text-primary-dark">
+                Glow Nest
+              </span>
             </Link>
           </motion.div>
 
@@ -59,7 +61,7 @@ const Header = () => {
             <User />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Right Side Icons */}
           <div className="md:hidden flex items-center space-x-4">
             <ToggleTheme />
             <CartIcon cartCount={cartCount} />
