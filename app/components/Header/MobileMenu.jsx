@@ -14,7 +14,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            className="fixed inset-0 bg-white/50 dark:bg-black/50 z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
 
@@ -24,7 +24,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-lg z-50 md:hidden overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-64 dark:bg-black-80 backdrop-blur-sm backdrop-saturate-100 shadow-lg z-50 md:hidden overflow-y-auto"
           >
             <div className="p-5">
               <div className="flex justify-between items-center mb-6">
@@ -79,4 +79,3 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
 };
 
 export default MobileMenu;
- 
