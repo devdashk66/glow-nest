@@ -1,11 +1,11 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { User } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import CartIcon from "./CartIcon";
 import ToggleTheme from "./ToggleTheme";
+import User from "./User";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -61,11 +61,8 @@ const FloatingNav = () => {
           {/* Right Side Icons */}
           <ToggleTheme />
           <CartIcon cartCount={5} />
-          <Link
-            href="/login"
-            className="text-gray-700 dark:text-gray-200 hover:text-primary transition"
-          >
-            <User size={20} />
+          <Link href="/login" className="hover:text-primary transition">
+            <User />
           </Link>
         </motion.nav>
       )}
