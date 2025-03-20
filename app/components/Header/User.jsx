@@ -6,9 +6,9 @@ const User = () => {
   return (
     <Link
       href="/login"
-      className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors"
+      className="hover:text-primary dark:hover:text-primary transition-colors"
     >
-      <UserIcon size={20} />
+      <UserIcon size={24} />
     </Link>
   );
 };

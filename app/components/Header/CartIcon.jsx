@@ -6,7 +6,7 @@ const CartIcon = ({ cartCount }) => {
   return (
     <Link
       href="/cart"
-      className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors relative"
+      className="hover:text-primary dark:hover:text-primary transition-colors relative"
     >
       <ShoppingCart size={20} />
       {cartCount > 0 && (

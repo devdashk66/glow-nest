@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { Menu, User, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import User from "./User";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import CartIcon from "./CartIcon";
