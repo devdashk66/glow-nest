@@ -16,7 +16,7 @@ const navLinks = [
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const pathname = usePathname(); // Get current route
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,13 +41,13 @@ const FloatingNav = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 shadow-lg rounded-full px-6 py-3 flex items-center space-x-6 backdrop-blur-md border dark:border-gray-800 z-50"
+          className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-opacity-30 shadow-lg rounded-full px-6 py-2 flex items-center space-x-6 backdrop-blur-sm backdrop-saturate-100 z-50"
         >
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`relative text-gray-700 dark:text-gray-200 transition hover:text-primary ${
+              className={`relative transition hover:text-primary ${
                 pathname === link.href ? "text-primary" : ""
               }`}
             >
