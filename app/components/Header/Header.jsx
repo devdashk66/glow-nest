@@ -69,7 +69,7 @@ const Header = () => {
             <CartIcon cartCount={cartCount} />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors focus:outline-none"
+              className=" hover:text-primary dark:hover:text-primary transition-colors focus:outline-none"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
