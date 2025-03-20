@@ -79,3 +79,4 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
 };
 
 export default MobileMenu;
+ 

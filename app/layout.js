@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import FloatingNav from "./components/Header/FloatingNav";
 import Header from "./components/Header/Header";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <FloatingNav />
       </body>
     </html>
   );

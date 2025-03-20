@@ -4,6 +4,7 @@ import { Menu, User, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import CartIcon from "./CartIcon";
+import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
 import ToggleTheme from "./ToggleTheme";
 
@@ -12,7 +13,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [cartCount, setCartCount] = useState(5);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -21,7 +21,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
     return () => {
@@ -36,13 +35,7 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white dark:bg-gray-900 shadow-md"
-          : "bg-white dark:bg-gray-900"
-      }`}
-    >
+    <header className={`w-full top-0 z-50 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -52,39 +45,18 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-primary">Luminous</span>
+              <span className="text-2xl font-bold text-primary">Glow Nest</span>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-200 dark:hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
+          <DesktopNavigation navLinks={navLinks} />
 
           {/* Theme Toggle and Cart */}
           <div className="hidden md:flex items-center space-x-6">
             <ToggleTheme />
             <CartIcon cartCount={cartCount} />
-            <Link
-              href="/login"
-              className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors"
-            >
-              <User size={20} />
-            </Link>
+            <User />
           </div>
 
           {/* Mobile Menu Button */}
