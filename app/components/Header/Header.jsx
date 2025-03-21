@@ -48,7 +48,7 @@ const Header = () => {
           >
             <Link href="/" className="flex items-center">
               <span className="text-2xl font-bold text-primary dark:text-primary-dark">
-                Glow Nest
+                GN
               </span>
             </Link>
           </motion.div>

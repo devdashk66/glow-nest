@@ -1,7 +1,9 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { ShoppingCart, User, X } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, X } from "lucide-react";
 import Link from "next/link";
+import CartIcon from "./CartIcon";
+import User from "./User";
 
 const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
   return (
@@ -14,7 +16,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white/50 dark:bg-black/50 z-40 md:hidden"
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
 
@@ -24,51 +26,90 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, navLinks, cartCount }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 h-full w-64 dark:bg-black-80 backdrop-blur-sm backdrop-saturate-100 shadow-lg z-50 md:hidden overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-80 backdrop-blur-sm backdrop-saturate-100 shadow-lg z-50 md:hidden overflow-y-auto"
           >
-            <div className="p-5">
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xl font-bold text-primary">Menu</span>
+            <div className="p-6 flex flex-col h-full">
+              {/* Close Button */}
+              <div className="flex justify-end mb-6">
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary focus:outline-none"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-all"
                 >
                   <X size={24} />
                 </button>
               </div>
 
-              <div className="space-y-4">
+              {/* Brand */}
+              <div className="mb-8 text-center">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  Glow Nest
+                </h2>
+                <p className="text-white/70">
+                  The best skincare products for you
+                </p>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="space-y-1 flex-grow mb-8">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="block text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary py-3 px-2 rounded-md text-lg"
+                    className="block text-white/90 hover:text-white py-3 px-4 border-l-2 border-transparent hover:border-white/50 transition-all duration-200 text-lg"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Link
-                  href="/cart"
-                  className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary py-3 px-2 rounded-md text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <ShoppingCart size={20} className="mr-2" />
-                  <span>Cart</span>
-                  {cartCount > 0 && (
-                    <span className="ml-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link>
-                <Link
-                  href="/login"
-                  className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary py-3 px-2 rounded-md text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <User size={20} className="mr-2" />
-                  <span>Login</span>
-                </Link>
+              </div>
+
+              {/* User Actions */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex flex-col items-center text-white hover:bg-white/15 transition-all cursor-pointer">
+                  <CartIcon />
+                  <Link href="/cart" className="mt-2 text-sm">
+                    Cart
+                  </Link>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex flex-col items-center text-white hover:bg-white/15 transition-all cursor-pointer">
+                  <User />
+                  <Link href="/login" className="mt-2 text-sm">
+                    Account
+                  </Link>
+                </div>
+              </div>
+
+              {/* Social Icons */}
+              <div className="pt-6 border-t border-white/20">
+                <h3 className="text-white/70 text-sm mb-4 text-center">
+                  Connect with us
+                </h3>
+                <div className="flex justify-center space-x-6">
+                  <Link href="https://facebook.com" target="_blank">
+                    <Facebook
+                      className="text-white/80 hover:text-white transition-colors"
+                      size={24}
+                    />
+                  </Link>
+                  <Link href="https://instagram.com" target="_blank">
+                    <Instagram
+                      className="text-white/80 hover:text-white transition-colors"
+                      size={24}
+                    />
+                  </Link>
+                  {/* <Link href="https://www.tiktok.com" target="_blank">
+                    <Tiktok
+                      className="text-white/80 hover:text-white transition-colors"
+                      size={24}
+                    />
+                  </Link> */}
+                  <Link href="https://wa.me" target="_blank">
+                    <MessageCircle
+                      className="text-white/80 hover:text-white transition-colors"
+                      size={24}
+                    />
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>
