@@ -1,3 +1,4 @@
+/*Simple cart icon*/
 "use client";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
